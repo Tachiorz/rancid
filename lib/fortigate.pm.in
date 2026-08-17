@@ -96,6 +96,8 @@ sub GetSystem {
 	next if /^\s*$/;
 	last if (/$prompt/);
 
+	# Filter --More-- from output
+	s/--More--\s{10}//;
 	if ($filter_osc >= 2) {
 	    next if (/^\s*APP-DB: .*/);
 	    next if (/^\s*AV AI\/ML Model:: .*/);
@@ -140,6 +142,8 @@ sub GetConf {
 	next if /^\s*$/;
 	last if (/$prompt/);
 
+	# Filter --More-- from output
+	s/--More--\s{10}//;
 	# System time is fortigate extraction time
 	next if (/^\s*!System time:/);
 	# remove occurrances of conf_file_ver
