@@ -175,6 +175,7 @@ sub WriteTerm {
 	tr/\015//d;
 	last if (/^$prompt/);
 	next if (/^(\s*|\s*$cmd\s*)$/);
+	next if (/^\! System Up Time\:/);
 	next if (/^\s+\^$/);
 
 	# skip emtpy lines at the beginning
